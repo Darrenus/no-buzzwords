@@ -1,4 +1,8 @@
 <p align="center">
+  <img src="../../logo.png" alt="no-buzzwords" width="520" />
+</p>
+
+<p align="center">
   <strong>说人话的技术解释。该留的术语留着，撑场面的词删掉。</strong>
 </p>
 

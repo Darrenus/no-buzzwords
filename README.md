@@ -1,4 +1,8 @@
 <p align="center">
+  <img src="logo.png" alt="no-buzzwords" width="520" />
+</p>
+
+<p align="center">
   <strong>Plain technical answers. Keep the terms that do work, drop the ones that don't.</strong>
 </p>
 
