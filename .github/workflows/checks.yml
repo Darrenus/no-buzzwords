@@ -1,0 +1,43 @@
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cursor mirror matches the canonical skill
+        run: |
+          if ! diff -u skills/no-buzzwords/SKILL.md .cursor/skills/no-buzzwords/SKILL.md; then
+            echo "::error::.cursor mirror is out of sync. Run: cp skills/no-buzzwords/SKILL.md .cursor/skills/no-buzzwords/SKILL.md"
+            exit 1
+          fi
+
+      - name: Manifests are valid JSON
+        run: |
+          python3 -c "import json; [json.load(open(p)) for p in ['.claude-plugin/plugin.json', '.claude-plugin/marketplace.json', 'hooks/hooks.json']]"
+
+      - name: Eval cases are valid JSONL
+        run: |
+          python3 -c "
+          import json
+          n = 0
+          for line in open('evals/cases.jsonl'):
+              if line.strip():
+                  json.loads(line)
+                  n += 1
+          print(f'{n} cases ok')
+          "
+
+      - name: Always-on hook stays silent without the opt-in flag
+        run: |
+          out=$(CLAUDE_CONFIG_DIR="$(mktemp -d)" node --input-type=module -e "await import('./hooks/always-on.mjs')")
+          if [ -n "$out" ]; then
+            echo "::error::Hook produced output with no opt-in flag present"
+            exit 1
+          fi
