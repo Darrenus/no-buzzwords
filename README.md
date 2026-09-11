@@ -6,6 +6,11 @@
   <a href="LICENSE"><img src="https://img.shields.io/github/license/Darrenus/no-buzzwords?style=flat" alt="License"></a>
 </p>
 
+<p align="center">
+  <strong title="English" aria-label="English">🇬🇧</strong> ·
+  <a href=".github/readme/README.zh-CN.md" title="简体中文" aria-label="简体中文">🇨🇳</a>
+</p>
+
 ## What it does
 
 A skill for your coding assistant that stops it from dressing up an explanation. It says what actually happens instead of naming the pattern, uses `use` instead of `leverage`, and replaces "robust and scalable" with a number.

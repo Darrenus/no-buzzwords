@@ -19,12 +19,13 @@ Do not read secrets, home-directory configuration, or unrelated local files. Do 
 | Skill mirror | `.cursor/skills/no-buzzwords/SKILL.md` | Cursor copy. Must stay byte-identical to the canonical file. |
 | Claude Code metadata | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | Plugin and marketplace manifests. |
 | Hooks | `hooks/hooks.json`, `hooks/always-on.mjs` | Opt-in always-on injection at session start. |
-| Documentation | `README.md`, `INSTALL.md` | User-facing overview and install. |
+| Documentation | `README.md`, `INSTALL.md`, `.github/readme/` | User-facing overview, install, and translations. |
 | Evaluation | `evals/cases.jsonl`, `evals/rubric.md` | Prompts that invite jargon, and how to score the answers. |
 
 ## Source-of-truth rules
 
 - Change `skills/no-buzzwords/SKILL.md` first, then copy it to `.cursor/skills/no-buzzwords/SKILL.md`. They must match exactly.
+- A README translation in `.github/readme/` must keep the rule list and the install commands in sync with `README.md`. Translate the prose; do not translate commands, file paths, or identifiers.
 - Keep `version` aligned between `.claude-plugin/plugin.json` and any other manifest added later.
 - A new rule needs a Bad/Good pair. A rule without a counterexample is a preference, not a rule.
 - Adding a rule means considering whether an existing one now overlaps. Ten is the working budget.
