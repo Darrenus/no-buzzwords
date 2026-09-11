@@ -93,6 +93,11 @@ touch ~/.claude/.no-buzzwords-always
 - **不简化那些精度带责任的文本**：许可证条款、药物剂量、安全边界。
 - **不负责把回答变短。** 那是另一个问题，[i-have-adhd](https://github.com/ayghri/i-have-adhd) 已经解决了。两个可以叠着用。
 
+## 作者
+
+- Allen（[@Darrenus](https://github.com/Darrenus)）
+- Claude（Opus 5，Anthropic）
+
 ## 来源
 
 结构和打包方式参考了 [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd)，那个插件管的是回答的形状。这里的规则管的是用词和抽象层级。

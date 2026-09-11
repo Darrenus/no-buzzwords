@@ -3,7 +3,8 @@
   "name": "no-buzzwords",
   "description": "Make the assistant explain the mechanism instead of naming the pattern. Plain words, load-bearing terms kept.",
   "owner": {
-    "name": "Darrenus"
+    "name": "Allen",
+    "url": "https://github.com/Darrenus"
   },
   "plugins": [
     {

@@ -93,6 +93,11 @@ Delete that file to go back to opt-in.
 - It does not simplify text where precision carries liability: license clauses, dosages, security boundaries.
 - It does not shorten answers. That is a different problem, and [i-have-adhd](https://github.com/ayghri/i-have-adhd) already solves it. The two stack.
 
+## Authors
+
+- Allen ([@Darrenus](https://github.com/Darrenus))
+- Claude (Opus 5, Anthropic)
+
 ## Credits
 
 Structure and packaging follow [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd), which does the same thing for response shape. The rules here are about word choice and level of abstraction.
