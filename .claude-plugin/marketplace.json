@@ -1,0 +1,16 @@
+{
+  "$schema": "https://www.schemastore.org/claude-code-marketplace.json",
+  "name": "no-buzzwords",
+  "description": "Make the assistant explain the mechanism instead of naming the pattern. Plain words, load-bearing terms kept.",
+  "owner": {
+    "name": "Darrenus"
+  },
+  "plugins": [
+    {
+      "name": "no-buzzwords",
+      "description": "Plain-language output shaping for technical answers.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}
