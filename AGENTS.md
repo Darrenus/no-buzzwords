@@ -21,6 +21,7 @@ Do not read secrets, home-directory configuration, or unrelated local files. Do 
 | Hooks | `hooks/hooks.json`, `hooks/always-on.mjs` | Opt-in always-on injection at session start. |
 | Documentation | `README.md`, `INSTALL.md`, `.github/readme/` | User-facing overview, install, and translations. |
 | Evaluation | `evals/cases.jsonl`, `evals/rubric.md` | Prompts that invite jargon, and how to score the answers. |
+| Eval tooling | `scripts/run_evals.py`, `scripts/judge.py` | Run, blind-grade, and gate. Standard library only. |
 
 ## Source-of-truth rules
 
@@ -34,9 +35,12 @@ Do not read secrets, home-directory configuration, or unrelated local files. Do 
 
 ```bash
 diff skills/no-buzzwords/SKILL.md .cursor/skills/no-buzzwords/SKILL.md
+python3 scripts/run_evals.py validate
 python3 -c "import json;[json.load(open(p)) for p in ['.claude-plugin/plugin.json','.claude-plugin/marketplace.json','hooks/hooks.json']]"
 node --input-type=module -e "await import('./hooks/always-on.mjs')"
 claude plugin validate .
 ```
+
+A behavior change to `SKILL.md` also needs an eval run. State the models, the trial count, and the release-gate result from `scripts/run_evals.py report`. A candidate that reads plainer but loses correctness does not ship; the gate enforces that, do not work around it.
 
 Run `git diff --check` before submitting.

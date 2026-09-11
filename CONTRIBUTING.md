@@ -29,6 +29,7 @@ The two files must be byte-identical.
 
 ```bash
 diff skills/no-buzzwords/SKILL.md .cursor/skills/no-buzzwords/SKILL.md
+python3 scripts/run_evals.py validate
 python3 -c "import json;[json.load(open(p)) for p in ['.claude-plugin/plugin.json','.claude-plugin/marketplace.json','hooks/hooks.json']]"
 claude plugin validate .
 ```

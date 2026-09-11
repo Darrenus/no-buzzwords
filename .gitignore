@@ -2,3 +2,4 @@ node_modules/
 .DS_Store
 *.log
 evals/out/
+evals/runners.json

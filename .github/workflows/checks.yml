@@ -22,17 +22,8 @@ jobs:
         run: |
           python3 -c "import json; [json.load(open(p)) for p in ['.claude-plugin/plugin.json', '.claude-plugin/marketplace.json', 'hooks/hooks.json']]"
 
-      - name: Eval cases are valid JSONL
-        run: |
-          python3 -c "
-          import json
-          n = 0
-          for line in open('evals/cases.jsonl'):
-              if line.strip():
-                  json.loads(line)
-                  n += 1
-          print(f'{n} cases ok')
-          "
+      - name: Cases and rubric validate
+        run: python3 scripts/run_evals.py validate
 
       - name: Always-on hook stays silent without the opt-in flag
         run: |

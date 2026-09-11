@@ -1,0 +1,14 @@
+{
+  "baseline": {
+    "cmd": ["claude", "-p", "--model", "claude-sonnet-5"],
+    "stdin": "{prompt}"
+  },
+  "candidate": {
+    "cmd": ["claude", "-p", "--model", "claude-sonnet-5", "--append-system-prompt", "{skill}"],
+    "stdin": "{prompt}"
+  },
+  "judge": {
+    "cmd": ["claude", "-p", "--model", "claude-opus-5"],
+    "stdin": "{prompt}"
+  }
+}
